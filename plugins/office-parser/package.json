@@ -1,0 +1,33 @@
+{
+  "name": "@plugins/office-parser",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Office 文档解析插件：Word/Excel/PPT/PDF 解析与 docx/xlsx/pptx 写回",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "docx": "^8.5.0",
+    "mammoth": "^1.7.2",
+    "officeparser": "^4.1.1",
+    "pdf-parse": "^1.1.1",
+    "pptxgenjs": "^3.12.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/pdf-parse": "^1.1.4",
+    "typescript": "^5.4.5"
+  },
+  "pluginConfig": {
+    "name": "plugin-office-parser",
+    "version": "1.0.0",
+    "displayName": "Office 文档解析",
+    "description": "支持解析 Word(.doc/.docx)、Excel(.xls/.xlsx)、PowerPoint(.ppt/.pptx)、PDF，并可将 AI 结果写回为 docx/xlsx/pptx",
+    "entry": "dist/index.js",
+    "capabilities": ["file-system", "document-write"],
+    "author": "AI Office"
+  }
+}

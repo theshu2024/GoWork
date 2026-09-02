@@ -1,0 +1,21 @@
+{
+  "name": "ai-office-assistant-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI 办公桌面客户端 - 微内核插件化架构（Host + Plugins）",
+  "workspaces": [
+    "apps/host",
+    "plugins/*"
+  ],
+  "scripts": {
+    "build:plugins": "npm run build --workspace @plugins/office-parser && npm run build --workspace @plugins/custom-tool-agent",
+    "dev": "npm run build:plugins && npm run dev --workspace @app/host",
+    "build": "npm run build:plugins && npm run build --workspace @app/host",
+    "dist": "npm run build:plugins && npm run dist --workspace @app/host",
+    "test": "node --import tsx --test apps/host/tests/plugin.manager.test.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.15.7",
+    "typescript": "^5.4.5"
+  }
+}
